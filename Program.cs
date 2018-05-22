@@ -15,30 +15,18 @@ namespace projectSandbox
 {
     class Program
     {
-        private static string id;
-        private static string type;
-
+        private static string token = "";
         private static string api = "https://api.ebay.com/buy/browse/v1/item_summary/search";
         private static string options = "?q=pear&limit=3";
 
-        private static string request()
-        {
-            string totalUrl = join(id);
-
-            return HttpGet(totalUrl);
-        }
-
-        private static string join(string s)
-        {
-            return api + type + "/" + s + options;
-        }
 
         private static string HttpGet(string url)
         {
             try
             {
                 WebRequest request = WebRequest.Create(url);
-                request.Headers.Add("Authorization", "Bearer v^1.1#i^1#r^0#I^3#f^0#p^1#t^H4sIAAAAAAAAAOVXW2wUVRjuttuaCtUoKLUpuA7lQXBmz8zObndHdnVpCyyUdu0uBbkEz86caYfOzmzmnG27iUAtoYYID/JAEEgsolFAjD6gMUpCwQfkgaBcotFEAgmp8CBBQxNjjGemS9lWwrUIifuymf/85z/f9/2XmQN6yspn9s3vG6pwPVLc3wN6il0ufgIoLyud9VhJcVVpEShwcPX31PS4e0sGZ2OY1jNSC8IZ08DI053WDSw5xjCTtQzJhFjDkgHTCEtElhLRRY2SwAEpY5nElE2d8cTqw4wCQyEoAjUoB1NI5kPUalyLmTTDjE9NyUGY4nnZJwaQmqLrGGdRzMAEGiTMCIAPssDPCkJSAJIfSKLA8YK4jPG0IgtrpkFdOMBEHLiSs9cqwHpzqBBjZBEahInEonMTzdFYfUNTcra3IFYkr0OCQJLFo5/qTAV5WqGeRTc/BjveUiIrywhjxhsZPmF0UCl6DcxdwHeklkO1tSEf4mXRryh8UBwXKeeaVhqSm+OwLZrCqo6rhAyikdytFKVqpFYjmeSfmmiIWL3H/nslC3VN1ZAVZhrmRF+NxuNMpLF5cSxRvzjJLtFwe6OGCRtvqWd9gUDQDxRVZQOK3wehKucPGo6Wl3nMSXWmoWi2aNjTZJI5iKJGY7URC7ShTs1GsxVViY2o0E+4piEfXGYndTiLWdJu2HlFaSqEx3m8dQZGdhNiaaksQSMRxi44EoUZmMloCjN20anFfPl04zDTTkhG8nq7urq4Lh9nWm1eAQDeu3RRY0JuR2nIUF+714f9tVtvYDWHiozoTqxJJJehWLpprVIARhsTEYK+gODL6z4aVmSs9V+GAs7e0R0xXh0iij41ABV7EKUUsVYYjw6J5IvUa+NAKZhj09DqQCSjQxmxMq2zbBpZmiL5/KrgC6qIVQIhlRVDtGxTfiXA8ipCAKFUSg4F/0+NcrulnpDNDIqbuibnxqXgx63YfZYShxbJJZCuU8PtVv0NSWKb5H2nZ/f6HVG0Y2AaBGY0zq5tTjbTXhPSoWabVjmo74m3Rt+HD1VSKcFhppoy/CLjHLoc7pQ5C2Eza9F3ONdsz/Wk2YEM2iXEMnUdWa38PSkxfhP9AU3zG7KSdY3KuOphY3aHY/IuaxuSB8ja3etafgPmvF+oBYIgiMI9catz8prM/QdD644SO9/EBCn34QPEO/o6FClyfnyv6wDodX1Gb1TAC2bw08FzZSWL3SUTq7BGEKdBlcNam0G/8i3EdaBcBmpWcZlrefWne1YVXMD6V4LKkStYeQk/oeA+Bqqvr5Tyj0+p4IPATxMI/EAUloHp11fd/NPuyWe/cB/4bcXx8NoL3isd7TVHvrw8ZSOoGHFyuUqLaGUUrR+Ir9uzb+H5je/0T/XsvMTWXX7z2DeX1p04/cG8EqSit3e8X7HkxMHuK1sCkz586eiaoaZpnae/2xB3v961q7Nma+z84M7mXZt/3b3pXJ++27Nc/PPC4fXJCU9VSpMmT2xDa7ZOnHG1tPrRQ7POrIg88/3zC2ecee3l4uN9naufaEgvdVWdPPfLqcS2eSvi5bOGjnz1h7luf+bq3jXvocHPL/5e/fWln949/vexTM/p/fv27+49mDs5WO/f++Qnx/wvEPnb1tl67tBas/LnocP8qe3wrLuurmr+TOWHt9aqL57b3n6yZcnWuR9nFwx81FYz7Y2VCzb8Vc3+SDb5VzdMHdixcduClmfbKge2HL1YNZy+fwAakJk4Gg8AAA==");
+
+                request.Headers.Add("Authorization", $"Bearer {token}");
                 request.Headers.Add("Content-Type", "application/json");
                 request.Headers.Add("X-EBAY-C-ENDUSERCTX", "affiliateCampaignId=<ePNCampaignId>,affiliateReferenceId=<referenceId>");
 
