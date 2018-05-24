@@ -1,0 +1,7 @@
+#Project Files to ignore
+*.dll
+.vscode
+*.pdb
+*.cache
+apiKey
+*.AssemblyInfo.cs
